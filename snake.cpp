@@ -9,7 +9,7 @@ bool lost = false;
 int maxx, maxy;
 int length = 0;
 int ch = 0;
-int worth = 20000;
+int worth = 7;
 
 struct point{
 	int x;
@@ -106,7 +106,7 @@ void play(){
 			lost = true;
 	}
 	mvprintw(food.y, food.x, "@");
-	mvprintw(0, maxx / 2 - 5, "Points: %i", length + 1);
+	mvprintw(0, maxx / 2 - 5, "Length: %i", length + 1);
 	if (head.x == food.x && head.y == food.y){
 		length += worth;
 		genfood();
@@ -117,7 +117,7 @@ void play(){
 void lose(){
 	timeout(-1);
 	mvprintw(maxy / 2 - 1, maxx / 2 - 4, "GAME OVER");
-	mvprintw(maxy / 2 + 1, maxx / 2 - 4, "Points: %i", length + 1);
+	mvprintw(maxy / 2 + 1, maxx / 2 - 4, "Length: %i", length + 1);
 	mvprintw(maxy / 2 + 5, maxx / 2 - 7, "Press q to quit");
 	refresh;
 	while (true){
